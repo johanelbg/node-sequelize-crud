@@ -1,4 +1,6 @@
 const Companies = require("../models/companies");
+const Users = require("../models/users");
+const CompaniesUsers = require("../models/companies_users");
 
 module.exports = {
   getAll(req, res) {
@@ -16,9 +18,9 @@ module.exports = {
   },
 
   add(req, res) {
-    const { name } = req.body;
+    const { text } = req.body;
     return Companies.create({
-      name
+      text
     })
       .then(() => res.sendStatus(201))
       .catch(e => console.log(e));
@@ -33,8 +35,8 @@ module.exports = {
   },
 
   update(res, req) {
-    const { name } = req.body;
-    return Companies.update({ name }, { where: { id: req.params.company_id } })
+    const { text } = req.body;
+    return Companies.update({ text }, { where: { id: req.params.company_id } })
       .then(company => res.send(company))
       .catch(e => console.log(e));
   }

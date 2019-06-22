@@ -4,7 +4,7 @@ const db = require("../config/db");
 const CompaniesUsers = db.define(
   "CompaniesUsers",
   {
-    company_id: {
+    companyId: {
       type: Sequilize.INTEGER,
       allowNull: false,
       references: {
@@ -12,7 +12,7 @@ const CompaniesUsers = db.define(
         key: "id"
       }
     },
-    user_id: {
+    userId: {
       type: Sequilize.INTEGER,
       allowNull: false,
       references: {

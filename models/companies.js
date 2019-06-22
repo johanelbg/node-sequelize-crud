@@ -12,7 +12,6 @@ const Companies = db.define(
     text: {
       type: Sequilize.STRING,
       allowNull: false,
-      unique: true,
       validate: {
         notEmpty: true
       }
@@ -26,8 +25,8 @@ const Companies = db.define(
 Companies.associate = models => {
   Companies.belongsToMany(models.Users, {
     through: "CompaniesUsers",
-    as: "users",
-    foreignKey: "userId"
+    as: "Users",
+    foreignKey: "companyId"
   });
 };
 
