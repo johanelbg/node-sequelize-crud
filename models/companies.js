@@ -5,7 +5,8 @@ const companies = db.define(
   "companies",
   {
     id: {
-      type: Sequilize.UUID,
+      type: Sequilize.INTEGER,
+      autoIncrement: true,
       primaryKey: true
     },
     name: {
