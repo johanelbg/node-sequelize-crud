@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../config/config.json");
 const Companies = require("../models/companies");
+const Users = require("../models/users");
+const companies_users = require("../models/companies_users");
 
 router.get("/", (req, res) =>
   Companies.findAll()

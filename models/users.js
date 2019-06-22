@@ -1,15 +1,15 @@
 const Sequilize = require("sequelize");
 const db = require("../config/db");
 
-const Companies = db.define(
-  "Companies",
+const Users = db.define(
+  "Users",
   {
     id: {
       type: Sequilize.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
-    text: {
+    username: {
       type: Sequilize.STRING,
       allowNull: false,
       unique: true,
@@ -23,12 +23,12 @@ const Companies = db.define(
   }
 );
 
-Companies.associate = models => {
-  Companies.belongsToMany(models.Users, {
+Users.associate = models => {
+  Users.belongsToMany(models.Companies, {
     through: "CompaniesUsers",
-    as: "users",
-    foreignKey: "userId"
+    as: "Companies",
+    foreignKey: "companyId"
   });
 };
 
-module.exports = Companies;
+module.exports = Users;

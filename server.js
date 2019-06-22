@@ -3,6 +3,8 @@ const bodyParser = require("body-parser");
 const app = express();
 const db = require("./config/db");
 
+db.sync({ force: true });
+
 app.use(bodyParser.json());
 
 // Test db
